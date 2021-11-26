@@ -1,5 +1,5 @@
 # **Invoker**
-A library to call (invoke) functions by taking names and sample inputs of those functions as parameters. And returns the output types and values.
+A library to call (invoke) functions by taking names and sample inputs of those functions as parameters. And returns the types and values of output.
 
 ## Purpose
 Testing the result of multiple functions and business logic.
