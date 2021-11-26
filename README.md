@@ -1,4 +1,6 @@
 # **Invoker**
+[![godoc](http://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](https://pkg.go.dev/github.com/odese/invoker) [![license](http://img.shields.io/badge/license-MIT-red.svg?style=flat)](https://raw.githubusercontent.com/odese/invoker/master/LICENSE)
+
 A library to call (invoke) functions by taking names and sample inputs of those functions as parameters. And returns the types and values of output.
 
 ## Purpose
