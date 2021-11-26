@@ -20,3 +20,14 @@ func Invoker(m map[string]FuncArguments, name string, params []interface{}) (out
 	output = f.Call(input)
 	return
 }
+
+// Invoke ...
+func Invoke(function interface{}, params []interface{}) (outputs []reflect.Value, err error) {
+	f := reflect.ValueOf(function)
+	inputs := make([]reflect.Value, len(params))
+	for p, param := range params {
+		inputs[p] = reflect.ValueOf(param)
+	}
+	outputs = f.Call(inputs)
+	return
+}
