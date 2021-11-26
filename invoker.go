@@ -4,30 +4,22 @@ import (
 	"reflect"
 )
 
+// Invoke ...
+func Invoke(function interface{}, inputs []interface{}) (outputTypes []reflect.Value, outputValues []interface{}, err error) {
+	f := reflect.ValueOf(function)
+	inputValues := make([]reflect.Value, len(inputs))
+	for i, input := range inputs {
+		inputValues[i] = reflect.ValueOf(input)
+	}
+	outputTypes = f.Call(inputValues)
+	for o := range outputTypes {
+		outputValues = append(outputValues, outputTypes[o].Interface())
+	}
+	return
+}
+
 // FuncArguments ...
 type FuncArguments struct {
-	Function   interface{}
-	Parameters []interface{}
-}
-
-// Invoker ...
-func Invoker(m map[string]FuncArguments, name string, params []interface{}) (output []reflect.Value, err error) {
-	f := reflect.ValueOf(m[name].Function)
-	input := make([]reflect.Value, len(params))
-	for p, param := range params {
-		input[p] = reflect.ValueOf(param)
-	}
-	output = f.Call(input)
-	return
-}
-
-// Invoke ...
-func Invoke(function interface{}, params []interface{}) (outputs []reflect.Value, err error) {
-	f := reflect.ValueOf(function)
-	inputs := make([]reflect.Value, len(params))
-	for p, param := range params {
-		inputs[p] = reflect.ValueOf(param)
-	}
-	outputs = f.Call(inputs)
-	return
+	Function interface{}
+	Inputs   []interface{}
 }
