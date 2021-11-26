@@ -4,5 +4,3 @@ A library to call (invoke) functions by taking names and sample inputs of those 
 ```
 go get github.com/odese/invoker
 ```
-
-## Usage
